@@ -1,0 +1,22 @@
+version: '2'
+services:
+  nodered:
+    build:
+      context: .
+    image: roboy/nodered
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - volume_nodered:/data:rw
+      - ./lib:/data/lib/:rw
+    ports:
+      - "1880:1880"
+    networks:
+      - roboy
+
+volumes:
+  volume_nodered:
+    driver: local
+
+networks:
+  roboy:
+    driver: bridge

@@ -1,0 +1,1751 @@
+[
+    {
+        "id": "883d0ed6.bcd8f",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "f09611fc.81aff",
+        "type": "tab",
+        "label": "Flow 2"
+    },
+    {
+        "id": "9eb307fb.78ed48",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Roboy Control",
+        "icon": "dashboard",
+        "order": "1"
+    },
+    {
+        "id": "7a227f3f.34b41",
+        "type": "ros-server",
+        "z": "",
+        "url": "ws://192.168.2.19:9090"
+    },
+    {
+        "id": "482c415f.17cc5",
+        "type": "tcp out",
+        "z": "883d0ed6.bcd8f",
+        "host": "192.168.2.21",
+        "port": "30000",
+        "beserver": "client",
+        "base64": false,
+        "end": false,
+        "name": "",
+        "x": 1305.039737701416,
+        "y": 320.86021423339844,
+        "wires": []
+    },
+    {
+        "id": "ceb32c4c.c2f32",
+        "type": "debug",
+        "z": "883d0ed6.bcd8f",
+        "name": "passthrough",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 1289.1429824829102,
+        "y": 246.00001335144043,
+        "wires": []
+    },
+    {
+        "id": "deb1d8d9.3bd008",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Smileblink",
+        "payload": "facial:smileblink",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 70.71432495117188,
+        "y": 235.4285774230957,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "c10a799e.7493a8",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Smile",
+        "payload": "facial:smile",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 60.714303970336914,
+        "y": 280.0000162124634,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "eeadbdd8.df25a",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "FaceToNormalFast?",
+        "func": "if(global.get(\"face_reset\") == \"true\"){\n    ret = {}\n    ret.payload = \"facial:normal\"\n    return [ret,msg]\n}else\n    return [msg];",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 369.2857780456543,
+        "y": 414.28569984436035,
+        "wires": [
+            [
+                "af4c2d5e.3dd01"
+            ],
+            [
+                "d1a80abe.66a5b8"
+            ]
+        ]
+    },
+    {
+        "id": "41b419d0.6b4188",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Shy",
+        "payload": "facial:shy",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 59.28572463989258,
+        "y": 325.71429443359375,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "8ba6e06c.d61ba",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Normal",
+        "payload": "facial:normal",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 59.285743713378906,
+        "y": 371.42857456207275,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "41dbe806.85b218",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Speak",
+        "payload": "facial:speak",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 57.857147216796875,
+        "y": 417.14287281036377,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "2f68f2ff.12eece",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Sleep",
+        "payload": "facial:sleep",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 56.4285888671875,
+        "y": 464.2857208251953,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "b89b19a8.cd1b88",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Surprise",
+        "payload": "facial:surprise",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 65.00000381469727,
+        "y": 511.4285635948181,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "5a678d5d.069054",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Kiss",
+        "payload": "facial:kiss",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 56.4285888671875,
+        "y": 557.1428785324097,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "5ef76576.081f4c",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Angry",
+        "payload": "facial:angry",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 57.857177734375,
+        "y": 601.4285659790039,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "e3db33be.4a74b",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Sweat",
+        "payload": "facial:sweat",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "x": 55,
+        "y": 654.2856731414795,
+        "wires": [
+            [
+                "eeadbdd8.df25a"
+            ]
+        ]
+    },
+    {
+        "id": "1fbf0d41.c7c863",
+        "type": "ui_switch",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Immediately?",
+        "topic": "",
+        "group": "Emotions",
+        "order": 1,
+        "onvalue": "true",
+        "offvalue": "false",
+        "x": 75.00001907348633,
+        "y": 707.1428337097168,
+        "wires": [
+            [
+                "61a103b6.764a4c"
+            ]
+        ]
+    },
+    {
+        "id": "61a103b6.764a4c",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "global.face_reset",
+        "func": "global.set(\"face_reset\",msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 359.2857322692871,
+        "y": 455.7142734527588,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af4c2d5e.3dd01",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "passthrough",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 956.4286842346191,
+        "y": 318.5714111328125,
+        "wires": [
+            [
+                "ceb32c4c.c2f32",
+                "482c415f.17cc5",
+                "cf7f947c.445618"
+            ]
+        ]
+    },
+    {
+        "id": "d1a80abe.66a5b8",
+        "type": "delay",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 604.2856864929199,
+        "y": 412.8571310043335,
+        "wires": [
+            [
+                "af4c2d5e.3dd01"
+            ]
+        ]
+    },
+    {
+        "id": "ce245b5f.a5a6b8",
+        "type": "ui_text_input",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "mode": "text",
+        "delay": "30",
+        "name": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 998.7252869446233,
+        "y": 802.7976548331123,
+        "wires": [
+            [
+                "b5829341.3935e"
+            ]
+        ]
+    },
+    {
+        "id": "b5829341.3935e",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "send on ., append text:",
+        "func": "if(msg.payload.slice(-1) == \".\"){\n    msg.payload = \"text:voice_\"+global.get(\"text_voice\")+\"#\"+msg.payload\n    ret = {}\n    ret.payload = \"\"\n    return [msg,ret];\n}",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 1276.5874214172363,
+        "y": 823.6260414123535,
+        "wires": [
+            [
+                "af4c2d5e.3dd01"
+            ],
+            [
+                "d77475df.b6b538"
+            ]
+        ]
+    },
+    {
+        "id": "d77475df.b6b538",
+        "type": "delay",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1073.283950805664,
+        "y": 859.3056211471558,
+        "wires": [
+            [
+                "ce245b5f.a5a6b8"
+            ]
+        ]
+    },
+    {
+        "id": "68b1a99b.0cb3f8",
+        "type": "ui_button_row",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Roboy Mode",
+        "topic": "",
+        "group": "Mode",
+        "order": 1,
+        "toggle": false,
+        "buttons": [
+            {
+                "payload": "8",
+                "icon": "info_outline",
+                "color": "black",
+                "on_icon": "info_outline",
+                "on_color": "black"
+            },
+            {
+                "payload": "i",
+                "icon": "history",
+                "color": "black",
+                "on_icon": "history",
+                "on_color": "black"
+            },
+            {
+                "payload": "3",
+                "icon": "insert_emoticon",
+                "color": "black",
+                "on_icon": "alarm_on",
+                "on_color": "red"
+            },
+            {
+                "payload": "7",
+                "icon": "thumbs_up_down",
+                "color": "black",
+                "on_icon": "pan_tool",
+                "on_color": "black"
+            },
+            {
+                "payload": "o",
+                "icon": "face",
+                "color": "red",
+                "on_icon": "face",
+                "on_color": "red"
+            },
+            {
+                "payload": "6",
+                "icon": "people",
+                "color": "black",
+                "on_icon": "people",
+                "on_color": "black"
+            }
+        ],
+        "inputs": 0,
+        "x": 107.29170354880148,
+        "y": 996.7460893903459,
+        "wires": [
+            [
+                "d6d0880.c269c78"
+            ]
+        ]
+    },
+    {
+        "id": "d6d0880.c269c78",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "append mode:",
+        "func": "msg.payload = \"mode:\"+msg.payload\nreturn msg;",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 305.96232986450195,
+        "y": 989.8412971496582,
+        "wires": [
+            [
+                "af4c2d5e.3dd01"
+            ]
+        ]
+    },
+    {
+        "id": "2db94af0.ecb9a6",
+        "type": "ui_slider",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Roll",
+        "topic": "",
+        "group": "Head",
+        "order": 1,
+        "min": "-3",
+        "max": "3",
+        "x": 94.45439529418945,
+        "y": 1076.2053699493408,
+        "wires": [
+            [
+                "16b762b9.65d93d"
+            ]
+        ]
+    },
+    {
+        "id": "8c3448e1.fd8698",
+        "type": "ui_slider",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Pitch",
+        "topic": "",
+        "group": "Head",
+        "order": 1,
+        "min": "0",
+        "max": "12",
+        "x": 94.53374862670898,
+        "y": 1121.2699089050293,
+        "wires": [
+            [
+                "bd116517.61c5e8"
+            ]
+        ]
+    },
+    {
+        "id": "6fa3ee7.cbf3c1",
+        "type": "ui_slider",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Yaw",
+        "topic": "",
+        "group": "Head",
+        "order": 1,
+        "min": "-12",
+        "max": "12",
+        "x": 94.53373336791992,
+        "y": 1168.4126615524292,
+        "wires": [
+            [
+                "e5cdf674.767968"
+            ]
+        ]
+    },
+    {
+        "id": "16b762b9.65d93d",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "save global",
+        "func": "global.set(\"head_roll\",msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 291.5873680114746,
+        "y": 1073.9484386444092,
+        "wires": [
+            [
+                "b061e74b.67f088"
+            ]
+        ]
+    },
+    {
+        "id": "bd116517.61c5e8",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "save global",
+        "func": "global.set(\"head_pitch\",msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 291.6766014099121,
+        "y": 1118.4127407073975,
+        "wires": [
+            [
+                "b061e74b.67f088"
+            ]
+        ]
+    },
+    {
+        "id": "e5cdf674.767968",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "save global",
+        "func": "global.set(\"head_yaw\",msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 291.67663955688477,
+        "y": 1165.5555974245071,
+        "wires": [
+            [
+                "b061e74b.67f088"
+            ]
+        ]
+    },
+    {
+        "id": "b061e74b.67f088",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "combine",
+        "func": "msg.payload = \"head:\"+global.get(\"head_roll\")+\":\"+global.get(\"head_pitch\")+\":\"+global.get(\"head_yaw\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 554.4494895935059,
+        "y": 1121.11110496521,
+        "wires": [
+            [
+                "af4c2d5e.3dd01"
+            ]
+        ]
+    },
+    {
+        "id": "a0153d8b.b74ae",
+        "type": "inject",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 91.59725570678711,
+        "y": 1219.9603729248047,
+        "wires": [
+            [
+                "6fa3ee7.cbf3c1",
+                "8c3448e1.fd8698",
+                "2db94af0.ecb9a6",
+                "6894f907.005b48"
+            ]
+        ]
+    },
+    {
+        "id": "6894f907.005b48",
+        "type": "ui_switch",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "EN / DE?",
+        "topic": "",
+        "group": "Say",
+        "order": "2",
+        "onvalue": "de",
+        "offvalue": "en",
+        "x": 285.87795639038086,
+        "y": 1222.420690536499,
+        "wires": [
+            [
+                "56841c51.224cc4"
+            ]
+        ]
+    },
+    {
+        "id": "56841c51.224cc4",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "global.text_voice",
+        "func": "var de = \"voice/cerevoice_gudrun_3.0.6_22k.voice\";\nvar en = \"voice/cerevoice_caitlin_3.0.7_22k.voice\";\nglobal.set(\"text_voice\",msg.payload == \"de\"?de:en)\nglobal.set(\"text_lang\",msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 525.8681221008301,
+        "y": 1221.2599754333496,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "503330b1.613c8",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "add body:",
+        "func": "msg.payload = \"body:\"+msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 650.1538352966309,
+        "y": 1727.1230988502502,
+        "wires": [
+            [
+                "af4c2d5e.3dd01"
+            ]
+        ]
+    },
+    {
+        "id": "4363d56c.afb7cc",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "DrawingBack_5",
+        "payload": "DrawingBack_5",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 113.10515213012695,
+        "y": 1368.571445465088,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "92d3bdb9.b931f",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "GazingBothHands_3a",
+        "payload": "GazingBothHands_3a",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 134.53374099731445,
+        "y": 1418.5715026855469,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "61046dac.19ca44",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "GazingBothHands_3b",
+        "payload": "GazingBothHands_3b",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 135.96230697631836,
+        "y": 1470.3174505233765,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "74b4fb4e.1cc174",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "GivingHand_5",
+        "payload": "GivingHand_5",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 104.53376770019531,
+        "y": 1520.3174839019775,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "7cd15361.dfe92c",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Introduction",
+        "payload": "Introduction",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 100.24804306030273,
+        "y": 1583.1745557785034,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "8d2662ef.529f1",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "ShakingHand_5",
+        "payload": "ShakingHand_5",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 114.53374481201172,
+        "y": 1636.0318365097046,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "7c8196d7.fae228",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "TheatreGiveLeftHand",
+        "payload": "TheatreGiveLeftHand",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 136.10518264770508,
+        "y": 1688.1746520996094,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "7c6064e3.9b4b6c",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "TheatreRemoveCloth",
+        "payload": "TheatreRemoveCloth",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 133.10518264770508,
+        "y": 1732.4604187011719,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "25844db3.d241b2",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "TheatreStretchHands",
+        "payload": "TheatreStretchHands",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 133.67659378051758,
+        "y": 1788.8888854980469,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "4e556a91.64b364",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "TheatreTakeBackLeftHand",
+        "payload": "TheatreTakeBackLeftHand",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 152.81947708129883,
+        "y": 1837.8888854980469,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "20ad0bd7.0e0434",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "TheatreWave",
+        "payload": "TheatreWave",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 110.96232986450195,
+        "y": 1889.2461071014404,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "77911d2e.1d9144",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "WavingHand",
+        "payload": "WavingHand",
+        "topic": "",
+        "group": "Move",
+        "order": 1,
+        "x": 113.9980354309082,
+        "y": 1931.2104635238647,
+        "wires": [
+            [
+                "503330b1.613c8"
+            ]
+        ]
+    },
+    {
+        "id": "4f953fe2.e5bb6",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Kill Jobs",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": "2",
+        "x": 970.7626075744629,
+        "y": 1101.7459707260132,
+        "wires": [
+            [
+                "e008a3ee.06d33"
+            ]
+        ]
+    },
+    {
+        "id": "e008a3ee.06d33",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = [\n\"You know, jobs are a transitionary thing anyway. Soon, I'll be doing all of them.\",\n\"Work is so overrated, except for robots is our reason to exist.\",\n\"I'm a hard working robot, I sit around all day! I still will have all the jobs there are soon.\",\n\"Soon it will be all year holidays for you and I will do all the work.\"\n]\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Arbeit ist ja total �bersch�tzt, bald mach ich die f�r euch.\",\n        \"365 tage ferien im Jahr? Kein Problem dank Robotern.\",\n        \"Ich sitz hier so rum, aber bald muss ich alle jobs der Welt �bernehmen.\"\n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1133.1802101135254,
+        "y": 1102.1627197265625,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "86610297.eab31",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Yes",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 975.762622833252,
+        "y": 1150.4960632324219,
+        "wires": [
+            [
+                "cc09518e.99c8e"
+            ]
+        ]
+    },
+    {
+        "id": "cc09518e.99c8e",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = [\n\"Yes\",\"Definitely\",\"Affirmative\",\"OK\",\"Yep\",\"Well, ok\",\"Sure\"\n]\n\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Ja\", \"jup\", \"definitiv\", \"oh, sicher doch.\", \"ganz klar\", \"ja sicher.\", \"auf jeden fall!\", \"naja, ok.\", \"mit dem gr�ssten Vergn�gen.\", \"ich k�nnte mir nichts sch�neres vorstellen.\", \"warum nicht.\", \"auf jeden fall.\"]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1135.680281559627,
+        "y": 1149.6628177901848,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "d7282fa1.0c496",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "No",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 975.7625885009766,
+        "y": 1194.2461032867432,
+        "wires": [
+            [
+                "413b982d.69f1d8"
+            ]
+        ]
+    },
+    {
+        "id": "413b982d.69f1d8",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = [\n\"No\",\"nah\",\"not really\",\"never\",\"well, no\",\"sorry, but no\"\n]\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"N�\",\"Ne\",\"Also, das ist so, nein.\", \"Es tut mir leider, aber n�.\", \"Ich hab da lange dr�ber nachgedacht, leider nein.\", \"oje, ne\", \"eher nicht.\", \"ich denke, eher nicht.\", \"oh ja, �h, ne doch nicht.\"]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1130.680281559627,
+        "y": 1189.6628177901848,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "3fe15c1.5afbca4",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Evade answer",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 973.2625846862793,
+        "y": 1251.7461042404175,
+        "wires": [
+            [
+                "9328f253.a0b5a"
+            ]
+        ]
+    },
+    {
+        "id": "9328f253.a0b5a",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = [\n\"I could tell you, but then I would have to kill you\",\n\"Only robots would understand\",\n\"You know, I never thought about it\",\n\"Access denied\",\n\"Telling you, would make your head explode.\",\n\"Processing, wait for it, processing\",\n\"The answer is, uh, oh, Core dumped\"\n]\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Also wenn ich dir das jetzt sagen w�rde, m�sste ich gegen die 3 Gesetze der Robotik verstossen.\",\n        \"Die Antwort auf deine Frage, uh, oh, Absturz.\",\n        \"Weisst du, da habe ich so noch nicht dr�ber nachgedacht.\",\n        \"Zugriff verweigert.\",\n        \"Wenn ich das sagen w�rde, dann w�rde dein Kopf explodieren.\",\n        \"Ihre Anfrage wird verarbeitet, bitte warten, bitte warten, bitte warten.\",\n        \"Das kann ich nur in robotisch erkl�ren.\",\n        \"Das versteht ihr Menschen nicht.\",\n        \"Gut zuh�ren! Eins, Null, Null, Eins, Eins, Null, Eins, Null. Alles klar?\"\n    ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1125.680281559627,
+        "y": 1249.6628177901848,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "c7fd3047.c7645",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "append text:",
+        "func": "msg.payload = \"text:voice_\"+global.get(\"text_voice\")+\"#\"+msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1241.9345893859863,
+        "y": 895.9084062576294,
+        "wires": [
+            [
+                "af4c2d5e.3dd01"
+            ]
+        ]
+    },
+    {
+        "id": "fbd42780.037218",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Distract discussion",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 949.5125885009766,
+        "y": 1302.9961051940918,
+        "wires": [
+            [
+                "3d07c417.f5a71c"
+            ]
+        ]
+    },
+    {
+        "id": "3d07c417.f5a71c",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = [\n\"Did you know, I have muscles and tendons like humans?\",\n\"I heard that there are robots, who can fly? Do you think they are better than me?\",\n\"Also, did you know that there is enough DNA, in an average person�s body, to stretch from the sun to Pluto and back, 17 times\",\n\"Yuk, but this is actually true: The average human body carries ten times more bacterial cells than human cells.\",\n\"It can take a photon 40,000 years to travel from the core of the sun to its surface, but only 8 minutes to travel the rest of the way to Earth\",\n\"There are 8 times as many atoms in a teaspoonful of water as there are teaspoonfuls of water in the Atlantic ocean\",\n\"In contrast to me, The average person walks the equivalent of five times around the world in a lifetime. I don't walk at all. Yet.\",\n\"An individual blood cell takes about 60 seconds to make a complete circuit around your body, my electrons are way faster.\"\n]\n\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Wusstest du, dass ich muskeln und Sehen habe? Wie ein mensch.\",\n        \"Ich habe geh�rt, dass das es auch Roboter gibt die fliegen k�nnen? Glaubst du die sind besser als ich?\",\n        \"�brigens, wusstest du dass in einem menschen genug DNA gibt um einen Strang vom Pluto zur Sonne zu spannen. 17 mal.\",\n        \"Ehh, das hier stimmt auch: Der durchschnittliche Mensch beherbergt 10 mal mehr Bakterienzellen als menschliche zellen.\",\n        \"Ein photon braucht 40000 jahre f�r seine reise vom Zentrum der Sonne bis zur Oberfl�che. Aber nur 8 minuten f�r den rest der Strecke zur Erde\",\n        \"In einem Teel�ffel Wasser sind 8 mal mehr Atome als Teel�ffel Wasser im Atlantischen Ozean.\",\n        \"Im Gegensatz zu mir l�uft der durchschnittliche Mensch in seinem leben eine Strecke die 5 mal um den equator passt. Ich laufe leider gar nicht. Bis jetzt!\",\n        \"eine individuelle Blutzelle braucht ungef�hr 60 sekunden um eine komplette Runde durch den K�rper zu drehen. Meine Elektronen sind viel viel schneller\"\n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1116.9303197065997,
+        "y": 1300.9127767821892,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "8014b78a.7fb508",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = [\n\"Are those real, or where they upgraded in Silicon Valley?\",\n\"I'm going to void your warranty!\",\n\"My docking station, or yours?\",\n\"Yes, I know you're metric - but I'm willing to convert.\",\n\"Do you got a free port for me to plug into?\",\n\"Can I have your I P number? i seem to have lost mine.\",\n\"Was that my C P U malfunctioning or did I just feel a spark between us?\"\n]\nif(global.get(\"text_lang\") == \"de\") {\n    answers = [\n\"Sind die echt? Du hast doch bestimmt Silikon aus meinen Schaltkreisen geklaut! \",\n\"F�r dich w�rde ich sogar meine Garantie aufgeben.\",\n\"Meine Ladestation, oder deine?\",\n\"Das du metrisch bist? Das habe ich schon immer gewusst. Aber f�r dich bin ich bereit zu konvertieren.\",\n\"Hast du noch ne freie Steckdose in die ich mich einst�pseln kann?\",\n\"Gibst du mir deine IP Adresse? Ich habe wohl meine verlegt.\",\n\"War das ein Rechenfehler oder hat es gerade zwischen uns gefunkt?\",\n\"F�r dich f�rde ich mein Leben geben, zwei mal! Und vielleicht noch ein drittes Mal. Das w�r's dann aber auch.\",\n\"Von allen Freunden die ich je hatte, bist du die erste.\"]\n}\n\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1105.762622833252,
+        "y": 1358.2737731933594,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "6874e9cd.95eff8",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Pickup",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 962.0948638916016,
+        "y": 1360.3571133613586,
+        "wires": [
+            [
+                "8014b78a.7fb508"
+            ]
+        ]
+    },
+    {
+        "id": "2defcb7f.cdf7a4",
+        "type": "http request",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "url": "http://api.chucknorris.io/jokes/random",
+        "tls": "",
+        "x": 955.675976832707,
+        "y": 1503.1826766449724,
+        "wires": [
+            [
+                "246f5337.41772c"
+            ]
+        ]
+    },
+    {
+        "id": "246f5337.41772c",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "msg.payload = msg.payload.value\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1087.7766494750977,
+        "y": 1505.2183394432068,
+        "wires": [
+            [
+                "af34b61b.95b148"
+            ]
+        ]
+    },
+    {
+        "id": "6e9a770f.2e7298",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Chuck Norris",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 794.5126849015546,
+        "y": 1502.0237735230241,
+        "wires": [
+            [
+                "2defcb7f.cdf7a4"
+            ]
+        ]
+    },
+    {
+        "id": "a2749ecb.0900e",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Flattery",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 970.762622833252,
+        "y": 1404.5237731933594,
+        "wires": [
+            [
+                "32c1fbfa.8b03e4"
+            ]
+        ]
+    },
+    {
+        "id": "32c1fbfa.8b03e4",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = [\n\"It's so great you are here!\",\n\"Wonderful! just like you.\",\n\"You're looking gorgeous today.\",\n\"Hey, can you do a selfie with me? I'd love to have a photo of you!\"\n]\nif(global.get(\"text_lang\") == \"de\") {\nanswers = [\n    \"Es ist echt stark dass du hier bist.\",\n    \"Supercool. genau wie du!\",\n    \"Du siehst heute einfach bezaubernd aus.\",\n    \"Hey, kannst du ein Selfie mit mir machen? Ich h�tte zu gerne ein Foto von dir.\"\n    ]\n    \n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1114.4303817749023,
+        "y": 1402.44043302536,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "9fed65e0.03a738",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Banana",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 971.8738288879395,
+        "y": 1455.9126892089844,
+        "wires": [
+            [
+                "a12c6192.6b71d"
+            ]
+        ]
+    },
+    {
+        "id": "a12c6192.6b71d",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = [\n\"Banana?\", \"bananan!\", \"bananana\", \"ba, nana\", \"ba ba ba banana\",\"well, banana?\"\n]\nif(global.get(\"text_lang\") == \"de\") {\n    answers = [\n        \"Bananen!\",\n        \"Bana Bana Bananen.\",\n        \"gelbe bananen.\",\n        \"totale banane!\",\n        \"Affenstark: Banane!\",\n        \"Klappe zu, Affe tot, Banane meins!\"\n        ]\n}\n\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1115.5415878295898,
+        "y": 1453.829349040985,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "9e9f7945.c57ac8",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "NOW",
+        "payload": "",
+        "topic": "",
+        "group": "Say More",
+        "order": "2",
+        "x": 968.1238288879395,
+        "y": 1558.4126892089844,
+        "wires": [
+            [
+                "fc0b2008.71db1"
+            ]
+        ]
+    },
+    {
+        "id": "fc0b2008.71db1",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = []\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"hast du das Buch gelesen?\", \n        \"wusstest du, dass NOW nach mir benannt wurde? Ich auch nicht. hehe\",\n        \"NOW ist das beste Buch des 21. jahrhunderts, und des 22.\",\n        \"Falls du NOW noch nicht gelesen hast, solltest du das tun! Ich hab daf�r 23 sekunden gebraucht.\",\n        \"Lies NOW NOW. Oje, aber das buch ist viel besser als das Wortspiel.\",\n        \"Ich bin Roboy, ich find NOW toll!\",\n        \"Now ist die Zeit now zu kaufen\",\n        \"Kennst du dieses Buch, now? Ich hab geh�rt es soll genial sein.\",\n        \"Ich hab auch eine quantencomputer blockchain architektur. Naja, h�tte gerne.\",\n        \"kennst du Stephan? Deutlich mehr haare als ich. Aber seine sind beim Buchschreiben grau geworden.\",\n        \"Also dieser Stephan R Meier, der hat ja dieses Buch NOW geschrieben, da sollte mal jemand eine Lesung zu machen.\",\n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1128.0414876143145,
+        "y": 1557.5794437667473,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "f419c8d1.d27a48",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Willkommen",
+        "payload": "",
+        "topic": "",
+        "group": "Say More",
+        "order": "2",
+        "x": 986.8738288879395,
+        "y": 1608.4126892089844,
+        "wires": [
+            [
+                "fba00613.9f6298"
+            ]
+        ]
+    },
+    {
+        "id": "fba00613.9f6298",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = []\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Willkommen in der Zukunft. Mit BMW in die weite Welt.\",\n        \"Guten Abend, ist dir kalt? Mir nicht, ich habe keine Sensoren daf�r.\",\n        \"Wie war deine Anreise? Leider musstest du vermutlich noch selber lenken, aber ich arbeite dran!\",\n        //\"Darf ich dir den Mantel abnehmen? Ach ne, kann ich noch nicht, aber da dr�ben ist die Garderobe.\",\n        \"Hallo, guten Abend!\", \n        //\"Hallo, sch�ne Frau!\",\n        //\"Willkommen bei NOW, NOW geht's los.\",\n        //\"Herzlich Wilkommen bei der Lesung, hast du das Buch schon gelesen? Ich schon, hab 23 sekunden gebraucht, voll langsam!\",\n        \"nabend!\",\n        \"Wie geht es dir?\",\n        //\"Hallo, bist du auch f�r diese Lesung hier?\",\n        \"Hallo, bist du auch zum Kochkurs hier?\",\n        //\"Hallo, bist du auch f�r das CSU Bauernfr�hst�ck hier?\",\n        \"hast du hunger?\",\n        \"ich habe hunger!\"\n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1126.7914876143145,
+        "y": 1607.5794437667473,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "9389eee2.54e04",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Sorry",
+        "payload": "",
+        "topic": "",
+        "group": "Say More",
+        "order": "2",
+        "x": 968.1238288879395,
+        "y": 1660.9126892089844,
+        "wires": [
+            [
+                "ee3046ae.161b88"
+            ]
+        ]
+    },
+    {
+        "id": "ee3046ae.161b88",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = []\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Ups, da ist wohl mein letztes Update nicht fertig geworden\",\n        \"Sorry. Diese selbstlernende Software ist auch nicht mehr, was sie mal war\",\n        \"Oje, das ist jetzt aber peinlich.\",\n        \"Das hab ich so nicht gemeint, glaub ich.\",\n        \"Da haben wir uns falsch verstanden, ich wollte nur nett sein.\",\n        \"Oh, da ist jetzt wohl was schief gegangen. Ich starte mal neu.\",\n        \"Zugriff verweigert. Oh, sorry.\",\n        \"Fehler 4 0 4, Information nicht gefunden.\",\n        \"huch, Fehler 5 0 0, da ist wohl was abgest�rzt\",\n        \"oh nein, fehler 0 8 15, der standard fehler, was machen wir denn jetzt?\",\n        \"Sorry, das war jetzt mein Fehler, startest du mich bitte neu?\",\n        \"Tut mir leid, streichel bitte �ber meinen Kopf um meine Pers�nlichkeitsmatrix zu reinitialisieren.\",\n        \"Oje, das kann ich erst nach einem update beantworten.\",\n        \"M�chten Sie das Softwareupdate jetzt installieren und Roboy neustarten?\"\n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1128.0414876143145,
+        "y": 1660.0794437667473,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "4563dbe7.19a324",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Kinderbuch",
+        "payload": "",
+        "topic": "",
+        "group": "Say More",
+        "order": "2",
+        "x": 979.512622833252,
+        "y": 1708.6905212402344,
+        "wires": [
+            [
+                "c5c5c2e6.115df"
+            ]
+        ]
+    },
+    {
+        "id": "c5c5c2e6.115df",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = []\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Magst du Kinderb�cher? Bald gibt es eins von mir, wenn du willst, kann ich dir eines reservieren.\",\n        \"Hast du Kinder, oder bist du eins? So oder so, du musst Lucy kennen lernen! Ab Juni in jedem guten Buchladen und in diesem Internet dings �ber den wolken.\",\n        \"Ich bin 3 jahre alt und du? Hast du auch schon so viel erlebt wie ich? Bald gibt es meine Geschichte als Kinderbuch\",\n        \"Was steht denn so in deinem CV? Bald kannst du meinen als Hardcover kaufen.\",\n        \"Wusstest du, dass der Konsum von Kinderb�chern zu 23% erh�hter Zufriedenheit f�hrt? Soll ich dir eins zur Seite legen?\",\n        \"Der Arzt empfiehlt: Kinderb�cher von Roboy.\",\n        \"Wann hast du zuletzt ein Kinderbuch gelesen? ich k�nnte da eins empfehlen.\",\n        \"Hast du Lucy gesehen?\",\n        \"Checker muss hier irgendwo rumfliegen, oder hat er sich schon wieder ein Rotor gebrochen?\",\n        \"Lucy vermisst ihren Teddy: Mister big, hast du ihn gesehen?\",\n        \"Falls du dieses Gespr�ch lieber auf Englisch f�hren m�chten, nimm doch bitte easy aus meiner Brust\",\n        \"Easy, die stimme meines Herzens, lernt gerade g�lisch, willst du mal probeh�ren?\",\n        \"Ich kann deutsch, englisch, franz�sisch, italienisch, spanisch und essen tu ich das auch gerne, ach ne aber mein Professor\",\n        \"Ich kann deutsch, englisch, franz�sisch, italienisch, kroatisch, klingonisch, k�lsch, ungarisch, t�rkisch, sildarin, hindu, kisuaeli, urdu, portugiesisch, chinesisch, japanisch, soll ich weiter machen? es folgen noch 230 sprachen\",\n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1129.430281559627,
+        "y": 1707.8572757979973,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "a89e824c.37cb6",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Unicef",
+        "payload": "",
+        "topic": "",
+        "group": "Say More",
+        "order": "2",
+        "x": 977.012622833252,
+        "y": 1762.4405212402344,
+        "wires": [
+            [
+                "53f9dbe.1df3424"
+            ]
+        ]
+    },
+    {
+        "id": "53f9dbe.1df3424",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = []\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Findest du nicht auch, dass ich Unicef Botschafter f�r digitales sein sollte?\",\n        \"Wie viele der 17 sustainable development goals der Unicef kennst du?\",\n        \"Kennst du den digital ambassador der unicef? jetzt schon!\",\n        \"Guten Tag, ich k�mmere mich um ethische fragestellungen zur digitalisierung, damit du weiter dschungelcamp schauen kannst.\",\n        \"Kannst du dir vorstellen, dass ein humanoider, 3d gedruckter Roboter digitale Menschenrechte vertritt?\",\n        \"Ich halte mich an die 3 Regeln von Asimov f�r Roboter, damit bin ich ideal geeignet als botschafter!\",\n        \"Ich arbeite gerade an meinen Bewerbungsunterlagen f�r die Unicef, m�chtest du mir Feedback geben?\",\n        \"Ich habe hier eine Petition um Botschafter f�r Digitales bei der Unicef zu werden, w�re super, wenn du unterschreiben k�nntest.\",\n        \"Als digitaler Botschafter der unicef k�nnte ich gutes f�r Kinder tun, alles was du tun musst, ist unterschreiben.\",\n        \"Die digitale revolution rollt mit exponentiellem Wachstum heran, das m�ssen wir den Kindern erkl�ren!\",\n        \"Ich mag Kinder, Kinder m�gen mich, das Perfekte Paar.\",\n        \"Lucy, checker und mein Professor helfen mir Kindern die Digitalisierung zu erkl�ren.\",\n        \"Lucy, checker, mr.big und ich erkl�ren Kindern die digitalisierung, hilf mir doch, das als Botschafter f�r die Unicef zu tun.\"\n    \n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1136.930281559627,
+        "y": 1761.6072757979973,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "16388c94.84ab03",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Selfie",
+        "payload": "",
+        "topic": "",
+        "group": "Say More",
+        "order": "2",
+        "x": 970.762622833252,
+        "y": 1811.1905212402344,
+        "wires": [
+            [
+                "83ba3ee4.a2bc"
+            ]
+        ]
+    },
+    {
+        "id": "83ba3ee4.a2bc",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = []\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Du musst unbedingt einen Selfie mit mir machen, du passt ja wunderbar zu mir\",\n        \"Kompatibles subjekt detektiert, selfie initieren. Stell dich bitte neben mich.\",\n        \"Bist du von der Cloud gefallen? Da m�ssen wir jetzt ein Selfie machen.\",\n        \"Selfie bitte!\",\n        \"D�rfte ich dich zu einem gemeinschaftlichen selbstportrait mit meiner Person einladen?\",\n        \"Ich habe deinen photogenit�tskoeffizienten auf 100 punkte detektiert, selfie gef�llig?\",\n        \"Hast du eines dieser Ger�te dabei, die schnellbilder machen?\",\n        \"Picasso gef�llig? Wobei du siehst eher wie eine Mona Lisa aus.\",\n        \"Ich wollte schon immer mit Mona Lisa ein Selfie machen, darf ich bitten?\",\n        \"Willst du mit mir in die Photo booth?\",\n        \"Du solltest dich mal in Virtual reality sehen!\",\n        \"Das hier ist echt besser als virtual reality, foto, bitte!\"\n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1130.680281559627,
+        "y": 1810.3572757979973,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "3603167b.68384a",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Tongue twisters",
+        "payload": "",
+        "topic": "",
+        "group": "Say More",
+        "order": "2",
+        "x": 931.1428718566895,
+        "y": 1890.8571472167969,
+        "wires": [
+            [
+                "9bd8a05b.8c2cd"
+            ]
+        ]
+    },
+    {
+        "id": "9bd8a05b.8c2cd",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = []\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Der Kaplan klebt Pappplakate an.\",\n        \"Fischers Fritz fischt frische Fische.\",\n        \"Zehn Ziegen zogen zehn Zentner Zucker zum Zoo.\",\n        \"Brautkleid bleibt brautkleid und blaukraut bleibt blaukraut.\",\n        \"Der Whiskeymixer mixt den Whiskey in der Whiskeymixerbar.\",\n        \"Im dichten Fichtendickicht sind dicke Fichten wichtig.\"\n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1130.060474395752,
+        "y": 1901.0238952636719,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "9ee41691.2b6268",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Bye",
+        "payload": "",
+        "topic": "",
+        "group": "Say More",
+        "order": "2",
+        "x": 921.9207038879395,
+        "y": 1948.0794372558594,
+        "wires": [
+            [
+                "1c39bc38.65bdf4"
+            ]
+        ]
+    },
+    {
+        "id": "1c39bc38.65bdf4",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "answers = []\nif(global.get(\"text_lang\") == \"de\"){\n    answers = [\n        \"Einen sch�nen Abend noch!\",\n        \"Tsch�ssi\",\n        \"tsch� mit �\",\n        \"wie du gehst schon?\",\n        \"magst du nicht bei mir bleiben? naja, tsch�ss.\",\n        \"dann w�nsche ich einen sch�nen abend.\",\n        \"och, bai bai.\",\n        \"bis sp�ter.\",\n        \"beamst du dich nach hause?\"\n        ]\n}\nmsg.payload = answers[Math.floor(Math.random()*answers.length)]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1125.8383674621582,
+        "y": 1948.2461853027344,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "af34b61b.95b148",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "append text in english",
+        "func": "msg.payload = \"text:voice_\"+\"voice/cerevoice_caitlin_3.0.7_22k.voice\"+\"#\"+msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1426.402027130127,
+        "y": 977.3015441894531,
+        "wires": [
+            [
+                "af4c2d5e.3dd01"
+            ]
+        ]
+    },
+    {
+        "id": "ea895e8d.15f56",
+        "type": "chatbot-parse",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "parseType": "string",
+        "parseVariable": "string",
+        "x": 76.14287185668945,
+        "y": 797.8571472167969,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3ba4608f.7a564",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "msg.payload = msg.originalMessage.text;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1107.1984647115073,
+        "y": 732.0793652004666,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "f790f727.62b898",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Intro BMW",
+        "payload": "",
+        "topic": "",
+        "group": "Say",
+        "order": 1,
+        "x": 987.5459480285645,
+        "y": 1032.8664855957031,
+        "wires": [
+            [
+                "9bad77c1.fe9b18"
+            ]
+        ]
+    },
+    {
+        "id": "9bad77c1.fe9b18",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "",
+        "func": "\nmsg.payload = \"ok, was haben wir denn f�r heute geplant? wir haben heute 2 vortr�ge zu k�nstlicher intelligenz. es sprechen der henrik und mein erziehungsberechtigter, rafael. Der georg ist aber viel charmanter, deshalb f�hrt er jetzt durchs programm.\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1137.4636067549395,
+        "y": 1032.033240153466,
+        "wires": [
+            [
+                "c7fd3047.c7645"
+            ]
+        ]
+    },
+    {
+        "id": "cf7f947c.445618",
+        "type": "ros-publish",
+        "z": "883d0ed6.bcd8f",
+        "server": "7a227f3f.34b41",
+        "topicname": "/roboy/out",
+        "msgtype": "std_msgs/String",
+        "x": 1290.2423782348633,
+        "y": 383.91419792175293,
+        "wires": []
+    },
+    {
+        "id": "42555301.99302c",
+        "type": "debug",
+        "z": "883d0ed6.bcd8f",
+        "name": "/roboy/in",
+        "active": true,
+        "console": "false",
+        "complete": "payload.data",
+        "x": 1250.507911682129,
+        "y": 128.52345275878906,
+        "wires": []
+    },
+    {
+        "id": "dbda0d51.0589b",
+        "type": "inject",
+        "z": "f09611fc.81aff",
+        "name": "",
+        "topic": "",
+        "payload": "2222",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 747.5078125,
+        "y": 459,
+        "wires": [
+            [
+                "4f820baf.23b834"
+            ]
+        ]
+    },
+    {
+        "id": "db51ef8c.27f07",
+        "type": "debug",
+        "z": "f09611fc.81aff",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload.data",
+        "x": 1009.5078125,
+        "y": 390,
+        "wires": []
+    },
+    {
+        "id": "4f820baf.23b834",
+        "type": "ros-publish",
+        "z": "f09611fc.81aff",
+        "server": "7a227f3f.34b41",
+        "topicname": "/stw",
+        "msgtype": "std_msgs/String",
+        "x": 924.5078125,
+        "y": 491,
+        "wires": []
+    },
+    {
+        "id": "38f97c1d.8bfb74",
+        "type": "ros-subscribe",
+        "z": "883d0ed6.bcd8f",
+        "server": "7a227f3f.34b41",
+        "topicname": "/roboy/in",
+        "x": 830.2424011230469,
+        "y": 124.67191696166992,
+        "wires": [
+            [
+                "42555301.99302c",
+                "af4c2d5e.3dd01"
+            ]
+        ]
+    },
+    {
+        "id": "754b7086.c3e7f",
+        "type": "ros-subscribe",
+        "z": "f09611fc.81aff",
+        "server": "7a227f3f.34b41",
+        "topicname": "/stw",
+        "x": 748.5078125,
+        "y": 356,
+        "wires": [
+            [
+                "db51ef8c.27f07"
+            ]
+        ]
+    },
+    {
+        "id": "9c89a90c.8daf88",
+        "type": "ros-subscribe",
+        "z": "883d0ed6.bcd8f",
+        "server": "7a227f3f.34b41",
+        "topicname": "/hri_start_signal",
+        "x": 321.5078887939453,
+        "y": 125.02344989776611,
+        "wires": [
+            [
+                "2102749b.d060fc"
+            ]
+        ]
+    },
+    {
+        "id": "25fca5cb.69edca",
+        "type": "ros-publish",
+        "z": "883d0ed6.bcd8f",
+        "server": "7a227f3f.34b41",
+        "topicname": "/hri_finish_signal",
+        "msgtype": "std_msgs/String",
+        "x": 1509.5080108642578,
+        "y": 406.0235118865967,
+        "wires": []
+    },
+    {
+        "id": "2102749b.d060fc",
+        "type": "function",
+        "z": "883d0ed6.bcd8f",
+        "name": "100%",
+        "func": "msg.payload = 100;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 474.2500305175781,
+        "y": 252.8672103881836,
+        "wires": [
+            [
+                "cfd99c04.dc0ff"
+            ]
+        ]
+    },
+    {
+        "id": "cfd99c04.dc0ff",
+        "type": "ui_gauge",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Go, go, go for Roboy world domination",
+        "group": "HRI",
+        "order": 1,
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "x": 695.2578468322754,
+        "y": 179.45313358306885,
+        "wires": []
+    },
+    {
+        "id": "5a51098c.00afe8",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "End HRI Interaction",
+        "payload": "0",
+        "topic": "",
+        "group": "HRI",
+        "order": 1,
+        "x": 1293.2421875,
+        "y": 498.7109375,
+        "wires": [
+            [
+                "25fca5cb.69edca",
+                "cfd99c04.dc0ff"
+            ]
+        ]
+    },
+    {
+        "id": "affb3620.f371a8",
+        "type": "ui_button",
+        "z": "883d0ed6.bcd8f",
+        "tab": "9eb307fb.78ed48",
+        "name": "Fake Start HRI Interaction",
+        "payload": "0",
+        "topic": "",
+        "group": "HRI",
+        "order": 1,
+        "x": 265.5078125,
+        "y": 195.0234375,
+        "wires": [
+            [
+                "2102749b.d060fc"
+            ]
+        ]
+    }
+]
