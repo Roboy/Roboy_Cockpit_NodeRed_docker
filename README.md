@@ -2,9 +2,9 @@
 Docker / docker-compose for controlling Roboy remotely
 
 ## Install
-git clone 
-cd Roboy_Cockpit_NodeRed_docker
-docker-compose up -d
+  git clone 
+  cd Roboy_Cockpit_NodeRed_docker
+  docker-compose up -d
 
 In the browser of your choice visit: 
 http://localhost:1880
