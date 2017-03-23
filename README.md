@@ -13,8 +13,7 @@ In the browser of your choice
 - Now visit http://localhost:1880/ui and have fun.
 
 ## Check state
-- visit http://localhost:1880/ui 
-- or:    
-
     cd Roboy_Cockpit_NodeRed_docker
     docker-compose ps
+
+or visit: http://localhost:1880/ui
