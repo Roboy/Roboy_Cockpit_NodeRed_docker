@@ -18,3 +18,11 @@ In the browser of your choice
     docker-compose ps
 
 or visit: http://localhost:1880/ui
+
+## Stop
+### Keep configs
+    docker-compose stop
+
+### Only keep flows saved in library
+    docker-compose down -v
+   
